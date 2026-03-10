@@ -4,8 +4,10 @@ import { useState, useEffect } from "react";
 
 //still needing to adjust the streak count. It's only checking the day but not the month, also it don't consider if the day it's really done or not
 export default function Habit(props){
-    const [data, setData] = useState([])
-    const [streak, setStreak] = useState()
+    const [data, setData] = useState([]);
+    const [streak, setStreak] = useState();
+
+    //it's rendering two times  
     useEffect(() => {
         async function fetchData(){
             const { data, error } = await supabase
@@ -14,41 +16,42 @@ export default function Habit(props){
             .eq('habit_id', props.habit_id);
 
             if(error){
-                alert(error.message)
+                alert(error.message);
             }else{
-                setData(data)
-                let maxStreak = 0
-                
+                setData(data);
+                const size = data.length-1;
+                let today = new Date().toISOString().split("T")[0];
+                today = Number(today[8] + today[9]);
 
-                data.map((day) => {
-                    let prev = Number(data[data.length-1].date[8] + data[data.length-1].date[9])
-                    let actualDay = Number(day.date[8] + day.date[9])
-                    console.log("prev:", prev)
-                    console.log("actual:", actualDay)
+                let streakCount = 0;
+                for (let day=size ; day>0 ; day--) {
+                    
+                    console.log(data[day])
+                    let actualDay = Number(data[day].date[8] + data[day].date[9]);
 
+                    let prev = Number(data[day-1].date[8] + data[day-1].date[9]);
 
-                    let streakCount = 0
-                    //needs to check if the days are done or not
-                    if (actualDay <= prev){
-                        streakCount++
+                    if(today==actualDay || today-1==actualDay) streakCount++;
+                    if(actualDay-1 == prev){
+                        streakCount++;
                     }else{
-                        streakCount = 0
+                        break;
                     }
+                    console.log("today:", today);
+                    console.log("prevBefore:", prev);
+                    console.log("actualBefore:", actualDay);
 
-                    if(streakCount > maxStreak){
-                        maxStreak = streakCount
-                    }
-                    prev = actualDay
-
-                    console.log(streakCount)
-                    console.log(day)  
-                })
-
-                setStreak(maxStreak)
+                    actualDay = prev;
+                    prev = Number(data[day-2].date[8] + data[day-2].date[9]);
+                    
+                    console.log("prev:", prev);
+                    console.log("actual:", actualDay);
+                }
+                setStreak(streakCount);
+                console.log(streakCount);
             }
-            
         }
-        fetchData()
+        fetchData();
     }, [props.habit_id])
 
     async function check(){
