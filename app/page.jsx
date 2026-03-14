@@ -4,6 +4,7 @@ import './globals.css'
 import { supabase } from '../src/lib/supabase'
 import { useEffect, useState } from 'react';
 import Habit from '../src/components/habit'
+import AddHabit from '../src/components/addHabit'
 export default function Home() {
   const [data, setData] = useState([])
 
@@ -23,12 +24,15 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="">
-      {
-        data.map((habit) => (
-            <Habit key={habit.id} name={habit.name} habit_id={habit.id}/>
-          ))
-      }
-    </div>
+    <section>
+      <AddHabit />
+      <div className="habits flex flex-col justify-center items-center p-7">
+        {
+          data.map((habit) => (
+              <Habit key={habit.id} name={habit.name} habit_id={habit.id}/>
+            ))
+        }
+      </div>
+    </section>
   );
 }
