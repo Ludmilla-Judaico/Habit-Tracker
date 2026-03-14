@@ -1,6 +1,7 @@
 'use client'
 import { supabase } from '../lib/supabase'
 import { useState, useEffect } from "react";
+import ManageHabit from './manageHabit'
 
 //still needing to adjust the streak count. It's only checking the day but not the month, also it don't consider if the day it's really done or not
 export default function Habit(props){
@@ -68,6 +69,7 @@ export default function Habit(props){
 
     return(
         <section className="habit p-7 rounded-4xl opacity-70 flex justify-center items-center gap-15 w-auto h-auto">
+            <ManageHabit habit_id={props.habit_id} habit_name={props.name}/>
             <div>
                 <p className="text-2xl">
                     {props.name}

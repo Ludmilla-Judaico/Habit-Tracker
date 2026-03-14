@@ -18,6 +18,8 @@ export default function AddHabit(){
 
         if(error){
             alert(error.message)
+        }else{
+            location.reload()
         }
     }
 
