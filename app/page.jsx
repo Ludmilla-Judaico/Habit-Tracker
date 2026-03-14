@@ -26,7 +26,7 @@ export default function Home() {
   return (
     <section>
       <AddHabit />
-      <div className="habits flex flex-col justify-center items-center p-7">
+      <div className="habits flex flex-col justify-center items-center p-7 gap-10">
         {
           data.map((habit) => (
               <Habit key={habit.id} name={habit.name} habit_id={habit.id}/>
