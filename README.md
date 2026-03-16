@@ -3,12 +3,12 @@ I'm building this project with the intention of putting my knowledge of React.js
 
 A habit tracker can help you analyze your consistency and encourage you to maintain your discipline
 
-- [BackLog of the project](https://docs.google.com/document/d/1Ssqx_gh6Q3me0pCsBE7zTSFlbUN7UiMeZiJqSADEjHg/edit?usp=sharing)
+- [BackLog of the project](soon)
 
 ## RoadMap
 - [X] Habits interface
 - [ ] Streak
-- [ ] Habits CRUD
+- [X] Habits CRUD
 - [ ] Authentication
 - [ ] Custom theme
 - [ ] Weekly overview
