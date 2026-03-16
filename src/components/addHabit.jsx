@@ -37,7 +37,7 @@ export default function AddHabit(){
                     <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
                 </svg>
             </button>
-            <div className={clicked ? "flex items-start transition-transform duration-300 ease-in-out transform" : "flex items-start transition-transform duration-300 ease-in-out transform -translate-x-50"}>
+            <div className={`flex items-start ${clicked ? "transition-transform duration-300 ease-in-out transform" : " transition-transform duration-300 ease-in-out transform -translate-x-50"}`}>
                 <form
                     onSubmit={(event) => {add(event)}}
                     className="flex flex-col items-center"

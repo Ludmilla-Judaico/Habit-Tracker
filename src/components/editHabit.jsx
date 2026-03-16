@@ -39,7 +39,7 @@ export default function EditHabit(props){
             </button>
 
             <form 
-            className={clicked ? "fixed border-2 rounded-2xl flex flex-col items-center p-10 habit transition-transform duration-300 ease-in-out transform" : "fixed border-2 rounded-2xl flex flex-col items-center p-10 habit scale-0 transition-transform duration-300 ease-in-out transform -translate-y-25 -translate-x-30"}
+            className={`fixed border-2 rounded-2xl flex flex-col items-center p-10 habit ${clicked ? "transition-transform duration-300 ease-in-out transform" : "scale-0 transition-transform duration-300 ease-in-out transform -translate-y-25 -translate-x-30"}`}
             onSubmit={(event) => {editHabit(event)}}
             >
                 <label
