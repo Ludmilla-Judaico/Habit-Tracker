@@ -1,4 +1,10 @@
 import "./globals.css"
+import { Road_Rage } from 'next/font/google'
+
+const roadRage = Road_Rage({
+  subsets: ["latin"],
+  weight: "400"
+});
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -7,7 +13,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className=""
+        className={roadRage.className}
         id="wallpaper"
       >
         {children}

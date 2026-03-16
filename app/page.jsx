@@ -5,6 +5,7 @@ import { supabase } from '../src/lib/supabase'
 import { useEffect, useState } from 'react';
 import Habit from '../src/components/habit'
 import AddHabit from '../src/components/addHabit'
+import LateralMenu from '../src/components/lateralMenu'
 export default function Home() {
   const [data, setData] = useState([])
 
@@ -24,15 +25,19 @@ export default function Home() {
   }, []);
 
   return (
-    <section>
-      <AddHabit />
-      <div className="habits flex flex-col justify-center items-center p-7 gap-10">
-        {
-          data.map((habit) => (
-              <Habit key={habit.id} name={habit.name} habit_id={habit.id}/>
-            ))
-        }
-      </div>
+    <section className='flex min-h-screen justify-between'>
+        <AddHabit />
+
+        <div className="habits flex flex-col mt-10 items-center p-7 gap-10">
+          <h1 className='text-6xl'>Habit Tracker</h1>
+          {
+            data.map((habit) => (
+                <Habit key={habit.id} name={habit.name} habit_id={habit.id}/>
+              ))
+          }
+        </div>
+
+        <LateralMenu />
     </section>
   );
 }

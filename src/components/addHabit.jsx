@@ -28,7 +28,7 @@ export default function AddHabit(){
     }
 
     return(
-        <div>
+        <div className="text-2xl">
             <button 
                 className="m-4 hover:cursor-pointer"
                 onClick={() => {click(); console.log(clicked)}}
