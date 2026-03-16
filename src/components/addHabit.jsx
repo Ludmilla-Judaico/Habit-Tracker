@@ -40,7 +40,7 @@ export default function AddHabit(){
             <div className={`flex items-start ${clicked ? "transition-transform duration-300 ease-in-out transform" : " transition-transform duration-300 ease-in-out transform -translate-x-50"}`}>
                 <form
                     onSubmit={(event) => {add(event)}}
-                    className="flex flex-col items-center"
+                    className="flex flex-col items-center ml-1"
                 >
                     <label
                         htmlFor="name"

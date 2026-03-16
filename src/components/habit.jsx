@@ -68,18 +68,18 @@ export default function Habit(props){
     }
 
     return(
-        <section className="habit p-7 rounded-4xl opacity-70 flex justify-center items-center gap-15 w-auto h-auto">
+        <section className="habit p-7 rounded-4xl opacity-70 flex justify-center items-center gap-15 w-min h-auto">
             <ManageHabit habit_id={props.habit_id} habit_name={props.name}/>
             <div>
-                <p className="text-2xl">
+                <p className="text-4xl w-min">
                     {props.name}
                 </p>
-                <p>
+                <p className="text-2xl">
                     Streak: {streak}
                 </p>
             </div>
             <button 
-                className="w-15 h-15 border-2 square rounded-xl hover:bg-pink-900"
+                className="w-15 h-15 border-2 square rounded-xl hover:bg-pink-900 hover:cursor-pointer text-2xl"
                 onClick={() => {check()}}
             >
                     OK
